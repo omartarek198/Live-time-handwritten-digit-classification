@@ -11,9 +11,10 @@ from PIL import Image
 
 def recognize( ):
     # open method used to open different extension image file
-
+    print ([11] * 1000)
     # im = Image.open(r"8small.png")
     im = Image.open(r"screenshot.png")
+
     im = im.resize((28, 28))
 
     im = im.convert('L')
@@ -34,7 +35,7 @@ def recognize( ):
             max = y_pred[0][i]
             index = i
 
-    print(index)
+    print(y_pred)
 
     return index,max
 
@@ -55,7 +56,7 @@ def DrawStrings():
     text_surface = my_font.render('Draw', False, (255, 255, 255))
 
     screen.blit(text_surface, (drawingArea[0] + drawingArea[2] * 1 / 3, drawingArea[1] - 50))
-    text_surface = my_font.render('C to Clear', False, (255, 255, 255))
+    text_surface = my_font.render('Enter to Clear', False, (255, 255, 255))
     screen.blit(text_surface, (100, 100))
     text_surface = my_font.render('Space to submit', False, (255, 255, 255))
     screen.blit(text_surface, (100, 150))
